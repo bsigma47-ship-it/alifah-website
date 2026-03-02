@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Heart Popup</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        font-family: 'Arial', sans-serif;
+        overflow: hidden;
+    }
+
+    /* Floating Hearts Background */
+    .floating-hearts span {
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 0, 90, 0.6);
+        transform: rotate(45deg);
+        animation: float 10s linear infinite;
+        bottom: -50px;
+    }
+
+    .floating-hearts span::before,
+    .floating-hearts span::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 0, 90, 0.6);
+        border-radius: 50%;
+    }
+
+    .floating-hearts span::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .floating-hearts span::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) rotate(45deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-110vh) rotate(45deg);
+            opacity: 0;
+        }
+    }
+
+    /* Different positions & speeds */
+    .floating-hearts span:nth-child(1) { left: 10%; animation-duration: 8s; }
+    .floating-hearts span:nth-child(2) { left: 25%; animation-duration: 12s; }
+    .floating-hearts span:nth-child(3) { left: 40%; animation-duration: 9s; }
+    .floating-hearts span:nth-child(4) { left: 55%; animation-duration: 14s; }
+    .floating-hearts span:nth-child(5) { left: 70%; animation-duration: 7s; }
+    .floating-hearts span:nth-child(6) { left: 85%; animation-duration: 11s; }
+
+    /* Center Heart */
+    .heart {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        background: red;
+        transform: rotate(-45deg);
+        cursor: pointer;
+        animation: beat 1s infinite;
+        z-index: 2;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: red;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -60px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: 60px;
+        top: 0;
+    }
+
+    @keyframes beat {
+        0%, 100% { transform: rotate(-45deg) scale(1); }
+        50% { transform: rotate(-45deg) scale(1.1); }
+    }
+
+    /* Popup */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        text-align: center;
+        width: 300px;
+        transition: 0.4s ease;
+        z-index: 3;
+    }
+
+    .popup.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .popup h2 {
+        color: #ff4b7d;
+        margin-bottom: 15px;
+    }
+
+    .popup p {
+        color: #555;
+        font-size: 16px;
+    }
+
+    .close-btn {
+        margin-top: 20px;
+        padding: 8px 15px;
+        border: none;
+        background: #ff4b7d;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background: #ff1f5a;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Floating Hearts -->
+<div class="floating-hearts">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Center Heart -->
+<div class="heart" onclick="openPopup()"></div>
+
+<!-- Popup -->
+<div class="popup" id="lovePopup">
+    <h2>💌 My Love Letter</h2>
+    <p>
+        From the moment you came into my life,  
+        everything feels brighter and warmer.  
+        You are my happiness, my peace, and my forever. ❤️
+    </p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+</div>
+
+<script>
+    function openPopup() {
+        document.getElementById("lovePopup").classList.add("active");
+    }
+
+    function closePopup() {
+        document.getElementById("lovePopup").classList.remove("active");
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Heart Popup</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        font-family: 'Arial', sans-serif;
+        overflow: hidden;
+    }
+
+    /* Heart Shape */
+    .heart {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        background: red;
+        transform: rotate(-45deg);
+        cursor: pointer;
+        animation: beat 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: red;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -60px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: 60px;
+        top: 0;
+    }
+
+    @keyframes beat {
+        0%, 100% { transform: rotate(-45deg) scale(1); }
+        50% { transform: rotate(-45deg) scale(1.1); }
+    }
+
+    /* Popup */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        text-align: center;
+        width: 300px;
+        transition: 0.4s ease;
+    }
+
+    .popup.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .popup h2 {
+        color: #ff4b7d;
+        margin-bottom: 15px;
+    }
+
+    .popup p {
+        color: #555;
+        font-size: 16px;
+    }
+
+    .close-btn {
+        margin-top: 20px;
+        padding: 8px 15px;
+        border: none;
+        background: #ff4b7d;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background: #ff1f5a;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="heart" onclick="openPopup()"></div>
+
+<div class="popup" id="lovePopup">
+    <h2>💌 My Love Letter</h2>
+    <p>
+        From the moment you came into my life,  
+        everything feels brighter and warmer.  
+        You are my happiness, my peace, and my forever. ❤️
+    </p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+</div>
+
+<script>
+    function openPopup() {
+        document.getElementById("lovePopup").classList.add("active");
+    }
+
+    function closePopup() {
+        document.getElementById("lovePopup").classList.remove("active");
+    }
+</script>
+
+</body>
+</html>
